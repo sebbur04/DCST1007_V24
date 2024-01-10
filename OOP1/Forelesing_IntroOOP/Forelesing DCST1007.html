@@ -4,19 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forelesing 10 Janaur DCST1007</title>
-    <h1>Forelesing 10 Januar DCST1007</h1>
+    </head>
+    <body onload="minFunksjon()">
 
+     
+    <h1>Forelesing 10 Januar DCST1007</h1>
+    <p>Personene hardkodet i en array sin BMI ved hjelp av klasser og objektet Person</p>
+    <div id="utdata"></div>
     <script>
 
+//Lage en klasse i Javacript OOP1 Forelesing 
+
+//Lag en klase Person 
+    class Person {
+    constructor(navn,vekt,hoyde){ //Javascript object constructor, kan hete et annet navn
+        this.navn = navn;
+        this.vekt = vekt;
+       
+    //Validering av Hoyde for bestemme output
+        if (hoyde < 10){
+        this.hoyde = hoyde;
+    } else {
+        this.hoyde = hoyde/100;
+    }
+
+        }
 
 
+    finnBMI(){ //Beregner BMI til Person
+        let bmi = this.vekt/(this.hoyde*this.hoyde);
+        return bmi;
+    }
+}
 
+//Lag en funksjon som lager et objekt av klassen Person som vi kan bruke til BMI Klakulatoren til
+function minFunksjon(){
+    let Sivert = new Person("Sivert", 80, 180); //Oppretter et nytt objekt som er bestemt av klasse beskrivelsen "Person"
+    let Erik = new Person("Erik", 90, 190);
+    let Heidi = new Person("Heidi", 60, 170);
+    let Thomas = new Person("Thomas", 71, 180);
 
+let personer = [Sivert, Erik, Heidi, Thomas]; //Lager en liste(Array) med alle personene
 
-    </script>
+document.getElementById("utdata").innerHTML =  //Viser i HTML resultatet
+Sivert.navn + "" + Sivert.finnBMI() + "<br>" +  
+Erik.navn + "" + Erik.finnBMI() + "<br>" +
+Heidi.navn + "" + Heidi.finnBMI() + "<br>" +
+Thomas.navn + "" + Thomas.finnBMI() + "<br>";
 
-</head>
-<body>
-    
+}
+
+    </script>   
 </body>
 </html>
