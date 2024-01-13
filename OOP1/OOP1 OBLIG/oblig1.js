@@ -1,8 +1,8 @@
 //OOP 1 Obligatorisk Innlevering JS Index 
-
+//--------------------------------------------------------------
 //Oppgave 1
 
-class Bil {
+class Caro {
     constructor(registreringsnr, merke, årsmodell, hastighet) {
         this.registreringsnr = registreringsnr;
         this.merke = merke;
@@ -21,13 +21,13 @@ class Bil {
     }
 }
 //Legg til biler ved å bruke Class Bil 
-const minBil = new Bil("BT71238", "Mitshubishi", 2018, 200);
+const nyBil = new Caro("BT71238", "Mitshubishi", 2018, 200);
 
 // Viser informasjonen i HTML
-minBil.visInfo();
+nyBil.visInfo();
 
 
-
+//--------------------------------------------------------------
 //Oppgave 2
 
 class Car {
@@ -61,11 +61,103 @@ volvo.visData("volvo");
 ferrari.visData("ferrari");
 lada.visData("lada");
 
+//--------------------------------------------------------------
 //Oppgave 3
 
+class Bil {
+    constructor() {
+      this.hastighet = 0; // Initialiser hastighet til 0 km/t
+    }
 
+    gass() {
+      this.hastighet += 10; // Øk farten med 10 km/t
+      this.oppdaterHastighet();
+    }
 
+    brems() {
+      if (this.hastighet >= 10) {
+        this.hastighet -= 10; // Reduser farten med 10 km/t, unntatt hvis farten er mindre enn 10 km/t
+        this.oppdaterHastighet();
+      } else {
+        alert("Bilen står stille. Kan ikke bremse mer.");
+      }
+    }
 
+    oppdaterHastighet() {
+      document.getElementById("hastighet").innerHTML = "Hastighet: " + this.hastighet + " km/t";
+    }
+  }
+
+  // Opprett en instans av Bil
+  const minBil = new Bil();
+
+  // Funksjon for gass-knappen
+  function gassKlikk() {
+    minBil.gass();
+  }
+
+  // Funksjon for brems-knappen
+  function bremsKlikk() {
+    minBil.brems();
+  }
+
+//--------------------------------------------------------------
 //Oppgave 4
 
+
+
+class Bilen {
+    constructor(navn) {
+      this.merke = navn;
+      this.hastigheter = 0;
+      this.visHastighet();
+    }
+
+    gassen() {
+      this.hastigheter += 10;
+      this.visHastighet();
+    }
+
+    bremsen() {
+      if (this.hastigheter >= 10) {
+        this.hastigheter -= 10;
+        this.visHastighet();
+      } else {
+        console.log(`${this.merke} står stille. Kan ikke bremse mer.`);
+      }
+    }
+  }
+
+visHastighet() 
+    document.getElementById(`${this.merke.toLowerCase()}Hastighet`).innerHTML = `${this.merke} Hastighet: ${this.hastigheter} km/t`;
+
+
+// Opprett bilobjekter
+const Hyundai = new Bilen('Hyundai');
+const Tesla = new Bilen('Tesla');
+const Mio = new Bilen('Mio');
+
+// Funksjon for gass-knappen for en bestemt bil
+function gassenKlikk(bilen) {
+    bilen.gassen();
+}
+
+  // Funksjon for brems-knappen for en bestemt bil
+  function bremsenKlikk(bilen) {
+    bilen.bremsen();
+  }
+
+//--------------------------------------------------------------
+//Oppgave 5
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------
 //OOP 1 Slutt
