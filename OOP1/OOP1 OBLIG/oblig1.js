@@ -103,52 +103,39 @@ class Bil {
 
 //--------------------------------------------------------------
 //Oppgave 4
-
-
-
-class Bilen {
-    constructor(navn) {
-      this.merke = navn;
-      this.hastigheter = 0;
-      this.visHastighet();
-    }
-
-    gassen() {
-      this.hastigheter += 10;
-      this.visHastighet();
-    }
-
-    bremsen() {
-      if (this.hastigheter >= 10) {
-        this.hastigheter -= 10;
-        this.visHastighet();
-      } else {
-        console.log(`${this.merke} står stille. Kan ikke bremse mer.`);
-      }
-    }
+// Her definerer vi en Car-klasse. Hver bil har en navn og en hastighet.
+class Vehicle {
+  constructor(name) {
+    this.name = name;
+    this.speed = 0;
   }
 
-visHastighet() 
-    document.getElementById(`${this.merke.toLowerCase()}Hastighet`).innerHTML = `${this.merke} Hastighet: ${this.hastigheter} km/t`;
+  // gass-metoden øker bilens hastighet med 10. Deretter oppdaterer den hastigheten på skjermen.
+  accelerate() {
+    this.speed += 10;
+    document.getElementById(this.name.toLowerCase() + 'Speed').innerText = this.name + ' Speed: ' + this.speed;
+  }
 
-
-// Opprett bilobjekter
-const Hyundai = new Bilen('Hyundai');
-const Tesla = new Bilen('Tesla');
-const Mio = new Bilen('Mio');
-
-// Funksjon for gass-knappen for en bestemt bil
-function gassenKlikk(bilen) {
-    bilen.gassen();
+  // brake-metoden reduserer bilens hastighet med 10, men sørger for at hastigheten aldri blir negativ. Deretter oppdaterer den hastigheten på skjermen.
+  decelerate() {
+    this.speed = Math.max(0, this.speed - 10);
+    document.getElementById(this.name.toLowerCase() + 'Speed').innerText = this.name + ' Speed: ' + this.speed;
+  }
 }
 
-  // Funksjon for brems-knappen for en bestemt bil
-  function bremsenKlikk(bilen) {
-    bilen.bremsen();
-  }
+// Her oppretter vi tre instanser av Car-klassen, en for hver bil.
+let lexus = new Vehicle('Lexus');
+let bmw = new Vehicle('BMW');
+let audi = new Vehicle('Audi');
+
 
 //--------------------------------------------------------------
 //Oppgave 5
+
+
+
+
+
 
 
 

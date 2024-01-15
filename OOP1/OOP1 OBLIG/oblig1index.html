@@ -67,28 +67,25 @@
 <hr class="solid">
 
 
-
-<h3>Oppgave 4 - Kjøre bilen fremover</h3>
-
-<h3>Flere biler med gass og brems</h3>
-
-<!-- Knapper for de forskjellige bilene -->
-
-<p id="HyundaiHastighet">Hyundai Hastighet: 0 km/t</p>
-<button onclick="gassKlikk(Hyundai)">Gass (Hyundai)</button>
-<button onclick="bremsKlikk(Hyundai)">Brems (Hyundai)</button>
-
-<p id="TeslaHastighet">Tesla Hastighet: 0 km/t</p>
-<button onclick="gassKlikk(Tesla)">Gass (Tesla)</button>
-<button onclick="bremsKlikk(Tesla)">Brems (Tesla)</button>
-
-<p id="MioHastighet">Mio Hastighet: 0 km/t</p>
-<button onclick="gassKlikk(Mio)">Gass (Mio)</button>
-<button onclick="bremsKlikk(Mio)">Brems (Mio)</button>
+<h3>Oppgave 4 - Metoder i klassen Bil med flere Biler</h3>
+<!-- Her oppretter vi seks knapper, to for hver bil. Hver knapp har en onclick-handler som kaller gass- eller brake-metoden på den tilsvarende bilen. -->
+<button onclick="lexus.accelerate()">Lexus Accelerate</button>
+<button onclick="lexus.decelerate()">Lexus Decelerate</button>
+<br>
+<button onclick="bmw.accelerate()">BMW Accelerate</button>
+<button onclick="bmw.decelerate()">BMW Decelerate</button>
+<br>
+<button onclick="audi.accelerate()">Audi Accelerate</button>
+<button onclick="audi.decelerate()">Audi Decelerate</button>
+<br>
+<!-- Her oppretter vi tre p tags for å vise hastigheten til hver bil koblet til ID. -->
+<p id="lexusSpeed">Lexus Speed: 0</p>
+<p id="bmwSpeed">BMW Speed: 0</p>
+<p id="audiSpeed">Audi Speed: 0</p>
 
 
-
-
+<hr class="solid">
+<h3>Oppgave 5 - Hvor fort kjører bilene</h3>
 
 
 
