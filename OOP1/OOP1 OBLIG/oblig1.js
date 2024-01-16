@@ -132,19 +132,7 @@ let audi = new Vehicle('Audi');
 //--------------------------------------------------------------
 //Oppgave 5
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Samme som Oppgave 4, fartene på bilene vises dynamisk i HTML under Oppgave 4
 
 //--------------------------------------------------------------
 //OOP 1 Slutt
