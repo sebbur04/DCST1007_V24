@@ -1,15 +1,93 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forelesing OOP2</title>
-</head>
-<body>
-<h2>Forelesing OOP2</h2>
-<p>På denne HTMLen vises det vi gikk gjennom praktisk i DCST1007 Forelesing</p>
-<script>
+    <title>Forelesing 10 Janaur DCST1007</title>
+    </head>
+    <body onload="skrivut()">
 
-</script>
+     
+    <h1>Forelesing 17 Januar DCST1007</h1>
+    <p>What does the .... say!</p>
+    <div id="utdata"></div>
+
+    <p>Dato og tid i JS med OOP Programering</p>
+    <div id="utdataopp2"></div>
+    <script>
+
+//*----------------------------------------------------------------*
+//Hund og katt oppgave - Gardsdrift
+
+class Husdyr {
+    constructor(navn){
+    this.navn = navn;
+}
+snakk(){
+    return "Lager en lyd";
+}
+
+}
+
+
+//Bruker extends for å arve egenskaper fra en annen klasse, her class Hudsyr
+class Hund extends Husdyr{
+    snakk(){
+        return "&nbsp; voff voff";
+    }
+}
+
+class Rottweiler extends Hund{
+    snakk(){
+        return "er en hunderase og" + super.snakk(); //Super henter da den overhengende snakk funksjonene i tilegg til hunderase
+    }
+}
+
+class Katt extends Husdyr{
+    snakk(){
+        return "&nbsp; mjaaaaaaauuuuu";
+    }
+}
+
+//Da kan vi legge til egenskaper uten å bruke selve constructeren 
+
+let a = new Katt("Godzilla");
+let b = new Hund("Sanji");
+let c = new Rottweiler("Raggen");
+
+//Lager objekt av subklassene
+//Subklasser arver metoder fra hovedklassen men overskriver med egne metoder om de er definert 
+
+document.getElementById("utdata").innerHTML = 
+a.navn + a.snakk() + "og <br>" +
+b.navn + b.snakk() + "og <br>" +
+c.navn + c.snakk();
+
+
+//*------------------------------------------------------------------------------------------------*
+//Eksempel 2 Dato og tid
+
+class MinDato extends Date {
+visDato(){
+
+        let dag =  ["Søndag","Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag",] //Søndag først i uken siden amerikansk oppsett
+
+        let mnd = ["Januar","Februar","Mars","April","Mai","Juni","Juli",
+        "August","September","Oktober","November","Desember"];
+
+        //Onsdag 17 Januar 2024 - Samme dag som koden ble lagd 
+
+       let utdata2 =  dag[this.getDay()] + "" + this.getDate() + ". " + mnd[this.getMonth()] + " " + this.getFullYear();
+
+       return utdata2;
+}}   
+
+function skrivut() {
+let x = new MinDato();
+document.getElementById("utdataopp2").innerHTML = x.visDato();
+
+}
+
+</script>   
 </body>
 </html>
