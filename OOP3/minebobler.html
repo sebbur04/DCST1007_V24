@@ -2,13 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>OOP3 Obligatorisk Innlevering - Burmo</title>
   </head>
   <body>
 
-  <canvas id="canvas" height="400" width="600"></canvas>
+  <canvas id="canvas" height="720" width="1280"></canvas> <!-- Orginal Canvas elementet h=400 w=600 -->
 
   <script>
+// OOP3 Sebastian E Burmo //
+// Oppgave 1 - 3 //
+//Tar utgangspunkt i kode  fra forelesning 25.1.2024 av Atle Nes //
+
+
 
   class Boble {
     constructor(x,y,r) {
@@ -16,10 +21,31 @@
       this.y = y;
       this.r = r;
       this.farge = getRandomColor();
+      this.originalFarge = this.farge; // Lagrer den opprinnelige fargen på eksisterende bobler 
     }
+    
     flytt() {
       this.x = this.x + Math.floor(Math.random() * 10 -5);
       this.y = this.y + Math.floor(Math.random() * 10 -5);
+      
+      //*---Oppgave 3 - Kontroller at boblen holder seg innen canvas---*
+      //Kontroll: Venstre og Høyre
+
+      // Sjekker om boblen er utenfor canvas og flytter den tilbake til kanten hvis den er det
+      // Sjekke om boblen har beveget seg utenfor venstre kant
+    if (this.x - this.r < 0) {
+      this.x = this.r; // Setter boblen tilbake til den orginale kanten
+    } else if (this.x + this.r > canvas.width) { //Sjekke høyre kant
+      this.x = canvas.width - this.r; //Setter boblen tilbake til den orginale kanten
+    }
+
+    //Kontroll: Topp og Bunn
+    if (this.y - this.r < 0) {
+      this.y = this.r;
+    } else if (this.y + this.r > canvas.height) {
+      this.y = canvas.height - this.r;
+    }
+  
     }
     vis() {
       ctx.beginPath();
@@ -29,6 +55,7 @@
       ctx.strokeStyle = "white";
       ctx.stroke();
     }
+    
     inneholder(musx,musy) {
       let a = musx - this.x;
       let b = musy - this.y;
@@ -89,17 +116,19 @@
     }
   }
 
-function musbeveg(event) {
+  function musbeveg(event) {
   for (let i = 0; i < bobler.length; i++) {
     if (bobler[i].inneholder(event.x, event.y)) {
       bobler[i].farge = "red";
     } else {
-      bobler[i].farge = getRandomColor(); //Istedenfor en bestemt farge gjør vi at fargen referer til en random farge
+      bobler[i].farge = bobler[i].originalFarge; // Gjenoppretter den opprinnelige fargen uten at det påvirker de andre boblene
+      //Ved å legge til funksjonen vil alle boblene endre farge samtidig 
     }
   }
 }
 
-function getRandomColor() { //Oppgave 1 - Tilegne tilfeldig farge når man skal lage en boble 
+//-----* Oppgave 1 - Tilegne tilfeldig farge når man skal lage en boble *----//
+function getRandomColor() { 
   let color = "#";
   for (let i = 0; i < 6; i++) {
     const randomValue = Math.floor(Math.random() * 16);
@@ -107,7 +136,19 @@ function getRandomColor() { //Oppgave 1 - Tilegne tilfeldig farge når man skal 
   }
   return color;
 }
-  
+
+//-----* Oppgave 2 - Nye bobler pr sek *-------//
+//Oppretter nye boble hvert sekund da set intervall er 1000
+function lagNyBoble() {
+  let x = Math.floor(Math.random() * canvas.width); //Math.Random i forhold til boblens plassering
+  let y = Math.floor(Math.random() * canvas.height);
+  let r = Math.floor(Math.random() * 40 + 10);
+  let b = new Boble(x, y, r);
+  bobler.push(b);
+}
+
+setInterval(lagNyBoble, 1000); // Kjører funksjonen lagNyBoble hvert sekund / 1000 i intervalet
+
   </script>
   </body>
 </html>
