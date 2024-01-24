@@ -15,7 +15,7 @@
       this.x = x;
       this.y = y;
       this.r = r;
-      this.farge = "green";
+      this.farge = getRandomColor();
     }
     flytt() {
       this.x = this.x + Math.floor(Math.random() * 10 -5);
@@ -57,7 +57,7 @@
   }
 
 
-  setInterval(tegn,100);
+  setInterval(tegn,300);
 
   function tegn() {
     reset();
@@ -89,17 +89,25 @@
     }
   }
 
-  function musbeveg(event) {
-    for(let i = 0; i < bobler.length; i++) {
-      if(bobler[i].inneholder(event.x,event.y)) {
-          bobler[i].farge = "red";
-      } else {
-        bobler[i].farge = "green";
-      }
+function musbeveg(event) {
+  for (let i = 0; i < bobler.length; i++) {
+    if (bobler[i].inneholder(event.x, event.y)) {
+      bobler[i].farge = "red";
+    } else {
+      bobler[i].farge = getRandomColor(); //Istedenfor en bestemt farge gjør vi at fargen referer til en random farge
     }
   }
+}
 
+function getRandomColor() { //Oppgave 1 - Tilegne tilfeldig farge når man skal lage en boble 
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    const randomValue = Math.floor(Math.random() * 16);
+    color += randomValue.toString(16);
+  }
+  return color;
+}
+  
   </script>
-
   </body>
 </html>
