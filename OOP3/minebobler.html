@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>OOP3 Obligatorisk Innlevering - Burmo</title>
+    <title></title>
   </head>
   <body>
-  <h1>Obligatorisk Innlevering OOP3 - Sebastian E Burmo</h1>
-  <p>Koden tar utgangspunkt i forelesing Atle Nes 24 Jan 2024</p>
+
   <canvas id="canvas" height="400" width="600"></canvas>
 
   <script>
@@ -30,7 +29,6 @@
       ctx.strokeStyle = "white";
       ctx.stroke();
     }
-    
     inneholder(musx,musy) {
       let a = musx - this.x;
       let b = musy - this.y;
@@ -44,12 +42,12 @@
     }
   }
 
-  let canvas = document.getElementById("canvas");
-  let ctx = canvas.getContext("2d");
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
   canvas.addEventListener("mousedown",musklikk,false);
   canvas.addEventListener("mousemove",musbeveg,false);
 
-  let bobler = [];
+  var bobler = [];
 
   for(let i = 0; i < 10; i++) {
     let x = Math.floor(Math.random() * canvas.width);
