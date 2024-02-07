@@ -8,7 +8,7 @@
 
 //---------------------------------Oppgave 2---------------------------------
 
-fetch('fjelltopper.json')
+fetch('fjelltopper.json') //Henter dataen fra JSON filen fjelltopper.json
     .then(response => response.json())
     .then(data => {
         // Få referanse til tabellen
@@ -35,13 +35,29 @@ fetch('fjelltopper.json')
 
 //---------------------------------Oppgave 3---------------------------------
 
+fetch('fjelltopper.json') //Henter dataen fra JSON filen fjelltopper.json
+    .then(response => response.json())
+    .then(data => {
+        // Få referanse til tabellen
+        let sortedTable = document.getElementById('sortedFjelltopperTable');
 
+        // Konverter høydeverdiene til tall som da kan brukes for å sorter dataene
+        data.forEach(item => {
+            item.høyde = parseInt(item.høyde.replace(',', '').replace('m', ''));
+        }); //Gjør om tallet som forekommer før m fra string til tall
+        data.sort((a, b) => b.høyde - a.høyde); //Sorter dataene etter høyde (HØY til LAV)
 
-
-
-
-
-
+        // Fyll tabellen med de sorterte dataene
+        data.forEach(item => {
+            let row = sortedTable.insertRow();
+            let cell1 = row.insertCell();
+            let cell2 = row.insertCell();
+            let cell3 = row.insertCell();
+            cell1.innerHTML = item.fylke;
+            cell2.innerHTML = item.topp;
+            cell3.innerHTML = item.høyde + 'm';
+        });
+    });
 
 
 //---------------------------------Oppgave 4---------------------------------
