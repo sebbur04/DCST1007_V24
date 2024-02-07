@@ -1,0 +1,58 @@
+
+[
+    {
+        "fylke": "Viken",
+        "topp": "Folarskardnuten",
+        "høyde": "1,933m"
+    },
+    {
+        "fylke": "Innlandet",
+        "topp": "Galdhøpiggen",
+        "høyde": "2,469m"
+    },
+    {
+        "fylke": "Vestfold og Telemark",
+        "topp": "Gaustatoppen",
+        "høyde": "1,883m"
+    },
+    {
+        "fylke": "Troms og Finnmark",
+        "topp": "Jiehkkevárri",
+        "høyde": "1,834m"
+    },
+    {
+        "fylke": "Oslo",
+        "topp": "Kjerkeberget",
+        "høyde": "630m"
+    },
+    {
+        "fylke": "Nordland",
+        "topp": "Oksskolten",
+        "høyde": "1,915m"
+    },
+    {
+        "fylke": "Møre og Romsdal",
+        "topp": "Pyttegga",
+        "høyde": "1,999m"
+    },
+    {
+        "fylke": "Vestland",
+        "topp": "Store Skagastølstinden",
+        "høyde": "2,405m"
+    },
+    {
+        "fylke": "Trøndelag",
+        "topp": "Storskrymten",
+        "høyde": "1,985m"
+    },
+    {
+        "fylke": "Agder",
+        "topp": "Sæbyggjenuten",
+        "høyde": "1,507m"
+    },
+    {
+        "fylke": "Rogaland",
+        "topp": "Vassdalseggi",
+        "høyde": "1,658m"
+    }
+]
