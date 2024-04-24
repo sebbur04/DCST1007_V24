@@ -3,7 +3,7 @@ console.log("Oppgave 1");
 console.log("Se konsollen for å se resultatet av oppgave 1 med klasser");
 
 //------------------------------------//
-//Automatisere navn, saldo og type konti uten hardkoding - For oppgave 5 ekstra//
+//Automatisere navn, saldo og type konti uten hardkoding - For oppgave  ekstra//
 
 document.getElementById('kontoForm').addEventListener('submit', function(event) {
   event.preventDefault();
